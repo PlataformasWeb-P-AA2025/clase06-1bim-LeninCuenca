@@ -12,8 +12,8 @@ csv_file_path = "data/saludos_mundo.csv"
 
 # Leer el archivo CSV y agregar los datos a la base de datos
 with open(csv_file_path, mode='r', encoding='utf-8') as file:
-    reader = csv.DictReader(file, delimiter='|')
-    for row in reader:
+    leer = csv.DictReader(file, delimiter='|')
+    for row in leer:
         # Crear un objeto Saludo con los datos del CSV
         miSaludo = Saludo2(
             mensaje=row['saludo'],
