@@ -1,6 +1,6 @@
 import csv
 from sqlalchemy.orm import sessionmaker
-from crear_base import Saludo
+from crear_base import Saludo2
 from configuracion import engine
 
 # Crear la sesión
@@ -15,8 +15,8 @@ with open(csv_file_path, mode='r', encoding='utf-8') as file:
     reader = csv.DictReader(file, delimiter='|')
     for row in reader:
         # Crear un objeto Saludo con los datos del CSV
-        miSaludo = Saludo(
-            saludo=row['saludo'],
+        miSaludo = Saludo2(
+            mensaje=row['saludo'],
             tipo=row['tipo'],
             origen=row['origen']
         )
@@ -25,4 +25,3 @@ with open(csv_file_path, mode='r', encoding='utf-8') as file:
 
 # Confirmar las transacciones
 session.commit()
-print("Datos agregados a la base de datos desde el archivo CSV.")
